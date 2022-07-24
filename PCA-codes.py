@@ -18,7 +18,7 @@ W=p.components_.T
 #Get the PC scores based on the centered X 
 y=p.fit_transform(scaledX)
 
-#Compute the PC scores based on the original values of X (just for easier interpretation)
+#Compute the PC scores based on the original values of X
 
 plt.figure(1)
 
@@ -34,8 +34,6 @@ plt.ylabel('PC Scores 2')
 names=df.iloc[:,0].agg(lambda x:x[-4:])
 for i, txt in enumerate(names):
     plt.annotate(txt, (y[i,0], y[i,1]))
-
-
 
 #Biplots
 xs=y[:,0]#xs represents PC score 1
@@ -58,6 +56,7 @@ pd.DataFrame(p.explained_variance_ratio_,index=np.arange(1,len(p.explained_varia
 plt.figure(2)
 plt.bar(np.arange(1,len(p.explained_variance_ratio_)+1),p.explained_variance_,color="blue",edgecolor="Red")
 
+#Bootstrap techniques
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
